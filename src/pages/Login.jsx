@@ -51,9 +51,6 @@ if (token.length) {
     <div className='login_page' >
       <Navbar />
 
-
-      
-
       <div className='form_box'>
         
        

@@ -21,7 +21,6 @@ import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import { Link } from "@mui/material";
-// import BarChartIcon from '@mui/icons-material/BarChart';
 
 const icones = [
   {
@@ -127,18 +126,7 @@ export default function MiniDrawer() {
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{
-              marginRight: 5,
-              ...(open && { display: "none" }),
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
+          
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
