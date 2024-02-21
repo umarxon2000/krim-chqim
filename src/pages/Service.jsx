@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../components/navbar/Navbar'
+import PrimarySearchAppBar from '../components/navbar/Navbar'
 
 const Service = () => {
   return (
     <div>
-      <Navbar />
+      <PrimarySearchAppBar />
       
-      Service</div>
+      <h1> bu bolimda texnik ishlar olib borilmoqda</h1></div>
   )
 }
 

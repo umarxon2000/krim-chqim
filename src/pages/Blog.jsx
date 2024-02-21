@@ -1,10 +1,13 @@
 import React from 'react'
-import Navbar from '../components/navbar/Navbar'
+import PrimarySearchAppBar from '../components/navbar/Navbar'
 
 const Blog = () => {
   return (
     <div>
-      <Navbar />
+      <PrimarySearchAppBar />
+      
+
+      <h1> bu bolimda texnik ishlar olib borilmoqda</h1>
     </div>
   )
 }

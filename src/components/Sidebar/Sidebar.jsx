@@ -15,32 +15,32 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
+import StarBorderPurple500Icon from "@mui/icons-material/StarBorderPurple500";
+import HomeIcon from '@mui/icons-material/Home';
 
 // icons
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import InventoryIcon from '@mui/icons-material/Inventory';
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import InventoryIcon from "@mui/icons-material/Inventory";
 import { Link } from "@mui/material";
 
 const icones = [
   {
     name: "dashboard",
-    icon : TrendingUpIcon
+    icon: TrendingUpIcon,
   },
   {
     name: "products",
-    icon : InventoryIcon
+    icon: InventoryIcon,
   },
   {
     name: "order",
-    icon : StarBorderPurple500Icon
+    icon: StarBorderPurple500Icon,
   },
   {
-    name: "chiqim",
-    icon : TrendingUpIcon
-  }
-
-]
+    name: "expense",
+    icon: TrendingUpIcon,
+  },
+];
 
 const drawerWidth = 240;
 
@@ -70,7 +70,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -122,54 +121,97 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
-          
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
+    <div>
+      <Box sx={{ display: "flex" }}>
+        <CssBaseline />
+        <AppBar position="fixed" sx={{ alignItems: "start" }} open={open}>
+          <Toolbar>
+            {!open && (
+              <IconButton
+                onClick={handleDrawerOpen}
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                sx={{ mr: 2, ...(open && { display: "none" }) }}
+              >
+                <MenuIcon />
+              </IconButton>
             )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <List>
-          {icones.map(text => (
-
-            <Link href={`/${text.name}`}>
-            <ListItem key={text.name} disablePadding sx={{ display: "block" }}>
-              
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-                >
-                <text.icon />
-
-                <ListItemIcon
+            <h1>KRIMCHQIM.UZ</h1>
+          </Toolbar>
+        </AppBar>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === "rtl" ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <List>
+            <Link href="/">
+              <ListItem disablePadding sx={{ display: "block" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
+                    minHeight: 48,
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
+                >
+                  <HomeIcon />
+
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
                   ></ListItemIcon>
-                <ListItemText primary={text.name} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          ))}
-        </List>
-        <Divider />
-      </Drawer>
-    </Box>
+                  <ListItemText
+                    primary={"bosh sahifa"}
+                    sx={{ opacity: open ? 1 : 0 }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+            {icones.map((text) => (
+              <Link href={`/${text.name}`}>
+                <ListItem
+                  key={text.name}
+                  disablePadding
+                  sx={{ display: "block" }}
+                >
+                  <ListItemButton
+                    sx={{
+                      minHeight: 48,
+                      justifyContent: open ? "initial" : "center",
+                      px: 2.5,
+                    }}
+                  >
+                    <text.icon />
+
+                    <ListItemIcon
+                      sx={{
+                        minWidth: 0,
+                        mr: open ? 3 : "auto",
+                        justifyContent: "center",
+                      }}
+                    ></ListItemIcon>
+                    <ListItemText
+                      primary={text.name}
+                      sx={{ opacity: open ? 1 : 0 }}
+                    />
+                  </ListItemButton>
+                </ListItem>
+              </Link>
+            ))}
+          </List>
+          <Divider />
+        </Drawer>
+      </Box>
+    </div>
   );
 }

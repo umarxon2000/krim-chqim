@@ -1,13 +1,17 @@
 import React from 'react'
+import PrimarySearchAppBar from "../components/navbar/Navbar"
+import MyCarousel from '../components/swiper/Swiper'
 
-const Main = () => {
+const MainPage = () => {
   return (
     <div>
-      <Navbar />
 
-      <h1>main page</h1>
+      <PrimarySearchAppBar />
+      <div>
+        <MyCarousel />
+      </div>
     </div>
   )
 }
 
-export default Main
+export default MainPage

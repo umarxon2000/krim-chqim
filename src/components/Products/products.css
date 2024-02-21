@@ -1,34 +1,39 @@
 .prodcts_page{
     width: 100%;
-    height: 100vh;
     padding: 90px 0;
+    gap: 20px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: center;
 }
-.prodcts_page table{
-    width: 60%;
-    border: 1px solid black;
+table{
+    width: 100vw;
+    overflow: auto;
 }
-.prodcts_page table, tr,th{
-    border: 1px solid black;
+table tr{
+    border-bottom: 1px solid gray;
 }
 
-.btn_add{
-    position: absolute;
-    right: 50px;
-    top: 90px;
-
+table tr:hover{
+    background-color: rgba(201, 198, 198, 0.501);
+    cursor: default;
 }
-.products_box{
+table tr:nth-child(even){
+    background-color: rgba(201, 198, 198, 0.501) ;
+}
+
+
+
+/* .products_box{
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 30px;
+    overflow: auto;
 
-}
+} */
 .input_addproduct{
     width: 100%;
     height: 50px;
